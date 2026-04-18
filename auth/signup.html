@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetingBot - Sign Up</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Create an Account</h1>
+            <p>Join our AI Meeting Scribe platform today!</p>
+            
+            <form id="signupForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="Create a password">
+                </div>
+                
+                <p id="error-message" class="error-hidden"></p>
+                
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+            
+            <div class="toggle-auth">
+                <p>Already have an account? <a href="login.html">Log In here</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

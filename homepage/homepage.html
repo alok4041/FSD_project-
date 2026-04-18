@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="titles">
+                <h1 id="headline">AI Automation Transcriber BOT Generater</h1>
+                <p id="para">This BOT helps you to keep the record of the audio in a written form.</p>
+            </div>
+            <div class="store-info">
+                <p id="auth_user_display">Welcome, User</p>
+                <p id="home_credits_display">Credits: 5</p>
+                <button id="open_store_btn">Store / Subscriptions</button>
+                <button id="logout_btn" style="background:#ff4444; border:none; padding:5px 10px; color:white; border-radius:5px; cursor:pointer;">Logout</button>
+            </div>
+        </div>
+    </header> 
+    <section>
+        <div id="form_section" class="input_information">
+            <form action="">
+                <div class="name">
+                <label>Bot Name:</label>
+                <input id="botname" type="text" placeholder="Enter bot name">
+                </div>
+                
+                <div class="link">
+                    <label for="meeting_link">G-Meet link: </label>
+                    <input id="link" type="text" name="meeting_link" placeholder="Enter the link" required>
+                </div>
+                
+                <input id="submit" type="submit" name="submit">
+            </form>
+        </div>
+
+        <div id="transcribing_section" class="hidden">
+            <h1>Transcribing...</h1>
+            <div class="loader" id="loader"></div>
+            <h1 id="loading_text">Loading...</h1>
+            <h2 id="meeting_timer" style="font-family: monospace; font-size: 2.5rem; color: #ffeb3b; padding: 10px;">00:00</h2>
+            <h3 id="please_wait_text">Please wait until meeting get over.</h3>
+            <button id="stop_button">STOP TRANSCRIBING / EXIT MEET</button>
+        </div>
+    </section>
+
+    <!-- Transcript Modal -->
+    <dialog id="transcriptModal">
+        <h2>Meeting Transcript</h2>
+        <div class="transcript-box">
+            <p id="botText">This is a placeholder for the text transcribed by the bot during the meeting...</p>
+        </div>
+        <button id="closeModal">Close</button>
+    </dialog>
+
+    <!-- Store Modal -->
+    <dialog id="storeModal">
+        <h2>Store & Subscriptions</h2>
+        <div class="store-grid">
+            <div class="store-card">
+                <h3>Buy Credits</h3>
+                <p>5 Transcriptions</p>
+                <p class="price">$50</p>
+                <button onclick="buyCredits()">Purchase 5 Credits</button>
+            </div>
+            <div class="store-card">
+                <h3>Monthly Sub</h3>
+                <p>Unlimited Uses</p>
+                <p class="price">$20 / mo</p>
+                <button onclick="buySubscription('monthly')">Subscribe</button>
+            </div>
+            <div class="store-card">
+                <h3>Yearly Sub</h3>
+                <p>Unlimited Uses</p>
+                <p class="price">$200 / yr</p>
+                <button onclick="buySubscription('yearly')">Subscribe</button>
+            </div>
+            <div class="store-card">
+                <h3>Lifetime Deal</h3>
+                <p>Unlimited Uses</p>
+                <p class="price">$500</p>
+                <button onclick="buySubscription('lifetime')">Buy Lifetime</button>
+            </div>
+        </div>
+        <button id="close_store_btn">Close Store</button>
+    </dialog>
+
+    <!-- Payment Details Modal -->
+    <dialog id="paymentModal">
+        <h2>Secure Payment Checkout</h2>
+        <div class="payment-form">
+            <p><strong>Item:</strong> <span id="payment_item_label"></span></p>
+            <p><strong>Total:</strong> <span id="payment_price_label"></span></p>
+            
+            <div style="text-align: left; margin-top: 20px;">
+                <label>Cardholder Name</label>
+                <input type="text" placeholder="John Doe" style="width: 100%; border: 1px solid #ccc; color: black; background: #fff;">
+                
+                <label style="margin-top: 10px; display: block;">Card Number</label>
+                <input type="text" placeholder="0000 0000 0000 0000" style="width: 100%; border: 1px solid #ccc; color: black; background: #fff;">
+                
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <div style="flex: 1;">
+                        <label>Expiry (MM/YY)</label>
+                        <input type="text" placeholder="12/26" style="width: 100%; border: 1px solid #ccc; color: black; background: #fff;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>CVV</label>
+                        <input type="text" placeholder="123" style="width: 100%; border: 1px solid #ccc; color: black; background: #fff;">
+                    </div>
+                </div>
+            </div>
+            <button id="confirm_payment_btn" style="margin-top: 20px; background: #4caf50; width: 100%; color: white; padding: 12px; border:none; border-radius: 6px; cursor: pointer; font-weight: bold;">Confirm Payment</button>
+            <button id="cancel_payment_btn" style="margin-top: 10px; background: #f44336; width: 100%; color: white; padding: 8px; border:none; border-radius: 6px; cursor: pointer;">Cancel</button>
+        </div>
+    </dialog>
+
+    <script src="homepage.js"></script>
+</body>
+</html>
